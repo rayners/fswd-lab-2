@@ -49,7 +49,7 @@ describe('server', function() {
             })
             // .expect(200, /Hi, myFancyUser/)
             .expect(302)
-            .expect('Location', '/users/welcome?username=myFancyUser')
+            .expect('Location', '/users/welcome')
             .then(function () {
                 return models.User.findOne({ where: { username: 'myFancyUser' }});
             })
