@@ -55,6 +55,10 @@ module.exports = (sequelize, DataTypes) => {
     return !!this.completedAt;
   };
 
+  Task.prototype.canUserComplete = function(user) {
+    return user.id === this.UserId;
+  };
+
   Task.prototype.markCompleted = function() {
     return this.update({ completedAt: new Date() });
   };
